@@ -101,14 +101,14 @@ useEffect (ex. 페이지 보기 로깅) 및 useState (ex. 페이지별 피드백
 
 ### `Image`
 
-NEXTjs에서는 <img> 가 아닌 <Image> 를 사용 </br>
+NEXTjs에서는 `img` 가 아닌 `Image` 를 사용 </br>
 import 한 이미지 Next에서 자동 최적화
 
 [NEXTjs공식문서: Image](https://nextjs.org/docs/app/building-your-application/optimizing/images)
 
 ### redirect
 
-다른 경로로 유저를 redirect 시킬 수 있음
+다른 경로로 유저를 `redirect` 시킬 수 있음
 
 ```tsx
 // Navigate to the new path page
