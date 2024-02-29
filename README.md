@@ -204,3 +204,78 @@ default.tsx 가 없으면 not-found 404페이지가 뜨게 된다.
 ## 인터셉팅 라우트
 
 서로 주소가 다른데 같이 뜰 수 있게 하는 것
+
+### ⛰️목표
+
+`app/page.tsx`위에 `@modal/i/flow/login/page.tsx`을 띄우기!
+
+> @modal/i/flow/login 구조를 @modal/(.)i/flow/login 으로 변경한다.
+
+```
+인터셉팅에 사용되는 ".." 은 주소를 기반으로 작성하게 됨
+
+패러렐 라우트의 슬롯(@)는 주소에 영향을 미치지 않는다.
+
+그러므로 (beforeLogin)/i/flow 주소를 (beforeLogin)/@modal/i/flow가 가리키려면
+"(..)i" 가 아닌 "(.)i" 로 생성해주어야 함
+```
+
+##### 주소가 http://localhost:3000/i/flow/login 로 뜨면서 목표대로 화면에 그려진다
+
+<img width="1679" alt="mainpage modal" src="https://github.com/kiminn/kimi-space/assets/134191815/ad16d8eb-6aa0-4480-97cf-c3c0893bb1c7">
+
+```tsx
+// Link태그에 따라 이동할 때 가로채기가 일어남
+// (beforeLogin)/@modal/i/flow/login/page.tsx가 화면에 그려지게 된다.
+<Link href="/i/flow/login" className={styles.login}>
+    로그인
+</Link>
+```
+
+Link태그에 따른 이동이 아닐 경우에는 이 부분의 `/i/flow/login/page.tsx` 가 실행되게 됨</br>
+ex) 새로고침 했을 시..., 브라우저로 직접 주소를 쳐서 접근했을 경우</br>
+
+<img width="308" alt="가로채기X" src="https://github.com/kiminn/kimi-space/assets/134191815/da445fe2-d24f-4d0e-95ad-8aa6d8de9759">
+
+##### 새로고침한 화면으로 background에 메인페이지가 보이지 않는다.
+
+<img width="1679" alt="login modal" src="https://github.com/kiminn/kimi-space/assets/134191815/d108a187-9569-422d-8174-15fe1705ec59">
+
+```tsx
+export default function Layout({ children, modal }: Props) {
+    return (
+        <div className={styles.container}>
+            {children}
+            {modal}
+        </div>
+    );
+}
+
+// 주소가 localhost:3000일 때는 children->page.tsx, modal->@modal/default.tsx
+// 주소가 localhost:3000/i/flow/login 때는 children->i/flow/login/page.tsx, modal->@modal/i/flow/login/page.tsx가 실행됨
+```
+
+아래의 폴더 구조에 따라 가로채기가 일어남
+
+##### parallel route"@" > intercepting route"(.)i"
+
+<img width="312" alt="parallel routing intercepting routing" src="https://github.com/kiminn/kimi-space/assets/134191815/197f07c9-2608-4b95-817c-696f7425a2d5">
+
+☺︎ **클라이언트에서 라우팅 할 때만 인터셉트 라우팅이 적용된다.**
+
+##### 페러렐 라우트와 인터셉트 라우트를 콜라보하면 기존화면에 위에 modal창을 띄울 수 있다.!
+
+### private folder
+
+공통되는 컴포넌트의 부모 폴더에 `_` 를 사용하여 `Private Folder`를 만들어 줄 수 있다.</br>
+로그인 모달같은 경우 공통적으로 쓰이기 때문에 정리한다.
+
+<img width="312" alt="private component" src="https://github.com/kiminn/kimi-space/assets/134191815/a7788a35-1a78-4fa4-8e01-1f65114173c8">
+
+```
+주소창에 영향이 없는 폴더 3가지
+
+1. (afterLogin), (beforeLogin) 처럼 Group Folder
+2. @modal : parallel route
+3. private folder(_): 폴더 정리용
+```
