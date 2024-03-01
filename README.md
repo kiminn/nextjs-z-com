@@ -17,6 +17,9 @@ next dev
 npm run dev
 ```
 
+</br>
+</br>
+
 ## 📁folder
 
 `public`: 누구나 접근할 수 있는 이미지들을 넣는 곳 </br>
@@ -36,9 +39,10 @@ npm run dev
 
 로그인, 로그아웃 시 주의하기
 
----
+</br>
+</br>
 
-### 주소 라우팅에 따른 폴더 설정
+### ⚫️ 주소 라우팅에 따른 폴더 설정
 
 ex) baseURL/i/flow/signup </br>
 ex) baseURL/compose/tweet ...
@@ -52,6 +56,9 @@ ex) baseURL/compose/tweet ...
 ##### `Dynamic Routing` : 중괄호[] 폴더로 동적 라우팅 구현이 가능! ([username], [id] 등)
 
 ex) baseURL/elonmusk/stauts/id => elonmusk 의 페이지만 접근이 가능함 지금은
+
+</br>
+</br>
 
 ### not-found.tsx
 
@@ -69,13 +76,18 @@ RootLayout -> HomeLayout -> HomePage
 
 ###### 계층적으로 잘 적용이되는 모습
 
-### () '소괄호'의 역할
+</br>
+</br>
+
+### ⚫️ () '소괄호'의 역할
 
 -   app의 하위폴더는 원래 URL경로로 매핑이 됨
 -   () 폴더 만의 Layout을 따로 만들 수 있음
 -   하위 폴더명을 괄호로 묶어 생성 시 URL 경로 구조에 영향을 주지 않고 그룹화하여 경로를 구성 가능
 
 ex) `app/(afterLogin)/home` 의 경우 브라우저 URL에는 `/home`으로 보이게 된다
+</br>
+</br>
 
 ### Layout.tsx VS Template.tsx
 
@@ -84,6 +96,7 @@ layout -> 고정된 부분(랜더링이 일어나지 않음),
 
 ```
 📚 Template.tsx
+
 사용자가 템플릿을 공유하는 경로 사이를 탐색할 때 구성 요소의 새 인스턴스가 마운트되고
 DOM 요소가 다시 생성되며 상태가 유지되지 않고 다시 동기화됨
 
@@ -92,7 +105,10 @@ useEffect (ex. 페이지 보기 로깅) 및 useState (ex. 페이지별 피드백
 🚨 템플릿과 레이아웃은 같이 사용되지 않는다.
 ```
 
-보통, 그룹화의 기준은 Layout
+보통, 그룹화의 기준은 `Layout`
+
+</br>
+</br>
 
 ### `Link` vs `a` tag
 
@@ -106,7 +122,7 @@ import 한 이미지 Next에서 자동 최적화
 
 [NEXTjs공식문서: Image](https://nextjs.org/docs/app/building-your-application/optimizing/images)
 
-### redirect
+### `redirect`
 
 다른 경로로 유저를 `redirect` 시킬 수 있음
 
@@ -117,13 +133,12 @@ redirect('/new_path');
 
 [NEXTjs공식문서: redirect](https://nextjs.org/docs/app/building-your-application/routing/redirecting)
 
-```
-기본적으로 `use server` 를 사용한 서버 액션에서는 type은 `push`가 기본 값
-**브라우저 기록 스택에 리다이렉트 되는 URL이 추가**되고,
+기본적으로 `use server` 를 사용한 서버 액션에서는 type은 `push`가 기본 값</br>
+**브라우저 기록 스택에 리다이렉트 되는 URL이 추가**되고,</br>
 그 외의 경우, `replace` 타입이 기본 값이므로 **브라우저 기록 스택의 현재 URL을 대체**한다.
-```
 
----
+</br>
+</br>
 
 ## CSSmodule
 
@@ -136,6 +151,9 @@ dvw, dvh 쓰는 이유?
 width: 100dvw;
 height: 100dvh;
 ```
+
+</br>
+</br>
 
 ## 패러렐 라우트(Parallel Route)
 
@@ -157,6 +175,9 @@ height: 100dvh;
 (children prop은 폴더에 매핑할 필요가 없는 암시적 슬롯이다.) </br>
 `app/page.tsx` 와 `app/@children/page.tsx` 는 동일함
 
+</br>
+</br>
+
 ### 💡 다른 계층 구조를 갖고 있는 페이지는 병렬로 렌더링 할 수 없다!
 
 ex) `app/page.tsx` 와 `app/(beforeLogin)/@modal/page.tsx` 는 병렬로 렌더링이 되지않는다
@@ -164,6 +185,9 @@ ex) `app/page.tsx` 와 `app/(beforeLogin)/@modal/page.tsx` 는 병렬로 렌더�
 병렬로 렌더링 하기 위해서는 슬롯과 다른 슬롯(혹은 페이지)가 "같은 계층 구조"를 가져야 한다.
 
 ##### 타입스크립트: 변수, 매개변수, 리턴값에 type을 지정해주는 것
+
+</br>
+</br>
 
 ## 서버 컴포넌트 vs 클라이언트 컴포넌트
 
@@ -179,7 +203,10 @@ ex) `app/page.tsx` 와 `app/(beforeLogin)/@modal/page.tsx` 는 병렬로 렌더�
 
 ##### 단, useState, useEffect와 같은 Hooks를 사용이 불가함.
 
-### client component로 변경
+</br>
+</br>
+
+### Client Component로 변경
 
 ```tsx
 //hooks 사용을 위해 컴포넌트 코드의 최상단에 넣어주기
@@ -200,6 +227,9 @@ default.tsx 가 없으면 not-found 404페이지가 뜨게 된다.
 
 `슬롯`: 슬롯은 부모 컴포넌트에서 자식 컴포넌트로 컨텐츠를 전달하는 메커니즘을 제공.</br>
 (이를 통해 부모 컴포넌트에서 자식 컴포넌트에게 전달되는 컨텐츠를 동적으로 삽입할 수 있다)
+
+</br>
+</br>
 
 ## 인터셉팅 라우트
 
@@ -224,6 +254,8 @@ default.tsx 가 없으면 not-found 404페이지가 뜨게 된다.
 
 <img width="1679" alt="mainpage modal" src="https://github.com/kiminn/kimi-space/assets/134191815/ad16d8eb-6aa0-4480-97cf-c3c0893bb1c7">
 
+<img width="1678" alt="가로채기모달" src="https://github.com/kiminn/nextjs-z-com/assets/134191815/29e577f9-e671-4964-a2a0-389875824aa1">
+
 ```tsx
 // Link태그에 따라 이동할 때 가로채기가 일어남
 // (beforeLogin)/@modal/i/flow/login/page.tsx가 화면에 그려지게 된다.
@@ -232,7 +264,7 @@ default.tsx 가 없으면 not-found 404페이지가 뜨게 된다.
 </Link>
 ```
 
-Link태그에 따른 이동이 아닐 경우에는 이 부분의 `/i/flow/login/page.tsx` 가 실행되게 됨</br>
+`Link` 태그에 따른 이동이 아닐 경우에는 이 부분의 `/i/flow/login/page.tsx` 가 실행되게 됨</br>
 ex) 새로고침 했을 시..., 브라우저로 직접 주소를 쳐서 접근했을 경우</br>
 
 <img width="308" alt="가로채기X" src="https://github.com/kiminn/kimi-space/assets/134191815/da445fe2-d24f-4d0e-95ad-8aa6d8de9759">
@@ -240,6 +272,8 @@ ex) 새로고침 했을 시..., 브라우저로 직접 주소를 쳐서 접근�
 ##### 새로고침한 화면으로 background에 메인페이지가 보이지 않는다.
 
 <img width="1679" alt="login modal" src="https://github.com/kiminn/kimi-space/assets/134191815/d108a187-9569-422d-8174-15fe1705ec59">
+
+<img width="1678" alt="새로고침" src="https://github.com/kiminn/nextjs-z-com/assets/134191815/977ae5d6-a493-4dc0-b80a-63618034ab68">
 
 ```tsx
 export default function Layout({ children, modal }: Props) {
@@ -252,7 +286,7 @@ export default function Layout({ children, modal }: Props) {
 }
 
 // 주소가 localhost:3000일 때는 children->page.tsx, modal->@modal/default.tsx
-// 주소가 localhost:3000/i/flow/login 때는 children->i/flow/login/page.tsx, modal->@modal/i/flow/login/page.tsx가 실행됨
+// 주소가 localhost:3000/i/flow/login 때는 children->i/flow/login/page.tsx, modal->@modal/i/flow/login/page.tsx가 실행
 ```
 
 아래의 폴더 구조에 따라 가로채기가 일어남
@@ -261,9 +295,12 @@ export default function Layout({ children, modal }: Props) {
 
 <img width="312" alt="parallel routing intercepting routing" src="https://github.com/kiminn/kimi-space/assets/134191815/197f07c9-2608-4b95-817c-696f7425a2d5">
 
-☺︎ **클라이언트에서 라우팅 할 때만 인터셉트 라우팅이 적용된다.**
+**✻ 클라이언트에서 라우팅 할 때만 인터셉트 라우팅이 적용된다.**
 
 ##### 페러렐 라우트와 인터셉트 라우트를 콜라보하면 기존화면에 위에 modal창을 띄울 수 있다.!
+
+</br>
+</br>
 
 ### private folder
 
@@ -272,10 +309,8 @@ export default function Layout({ children, modal }: Props) {
 
 <img width="312" alt="private component" src="https://github.com/kiminn/kimi-space/assets/134191815/a7788a35-1a78-4fa4-8e01-1f65114173c8">
 
-```
-주소창에 영향이 없는 폴더 3가지
+#### 📎 주소창에 영향이 없는 폴더 3가지
 
 1. (afterLogin), (beforeLogin) 처럼 Group Folder
 2. @modal : parallel route
-3. private folder(_): 폴더 정리용
-```
+3. private folder(\_): 폴더 정리용
