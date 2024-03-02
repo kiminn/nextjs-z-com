@@ -4,13 +4,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import ZLogo from '../../../public/zlogo.png';
 import NavMenu from './_component/NavMenu';
-import LogoutButton from './_component/LogOutButton';
-// import NavMenu from '@/app/(afterLogin)/_component/NavMenu';
-// import LogoutButton from '@/app/(afterLogin)/_component/LogoutButton';
-// import TrendSection from '@/app/(afterLogin)/_component/TrendSection';
-// import FollowRecommend from '@/app/(afterLogin)/_component/FollowRecommend';
+import LogoutButton from './_component/LogoutButton';
+import TrendSection from './_component/TrendSection';
+import FollowRecommend from './_component/FollowRecommend';
 
 export default function AfterLoginLayout({ children }: { children: ReactNode }) {
+    // 나중에 서버에서 데이터를 불러와서 map으로 돌릴 부분
+    const followRecommends = Array.from({ length: 3 }, (_, index) => <FollowRecommend key={index} />);
     return (
         <div className={style.container}>
             <header className={style.leftSectionWrapper}>
@@ -37,6 +37,7 @@ export default function AfterLoginLayout({ children }: { children: ReactNode }) 
                 <div className={style.rightSectionInner}>
                     <main className={style.main}>{children}</main>
                     <section className={style.rightSection}>
+                        {/* rightSection의 width를 inherit 상속!받음 */}
                         <div style={{ marginBottom: 60, width: 'inherit' }}>
                             <form className={style.search}>
                                 <svg width={20} viewBox="0 0 24 24" aria-hidden="true">
@@ -47,12 +48,10 @@ export default function AfterLoginLayout({ children }: { children: ReactNode }) 
                                 <input type="search" />
                             </form>
                         </div>
-                        {/* <TrendSection /> */}
+                        <TrendSection />
                         <div className={style.followRecommend}>
                             <h3>팔로우 추천</h3>
-                            {/* <FollowRecommend />
-                            <FollowRecommend />
-                            <FollowRecommend /> */}
+                            {followRecommends}
                         </div>
                     </section>
                 </div>
