@@ -4,7 +4,9 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/ko';
 
+//한글 플러그인
 dayjs.locale('ko');
+//상대시간
 dayjs.extend(relativeTime);
 
 export default function Post() {
@@ -35,7 +37,7 @@ export default function Post() {
                             <span className={style.postUserId}>@{target.User.id}</span>
                             &nbsp; · &nbsp;
                         </Link>
-                        {/* dayjs 글이 몇 초전 몇 분전에 쓰였는지? */}
+                        {/* dayjs 글이 몇 초전 몇 분전에 쓰였는지? fromNow(true): ~전 안뜸*/}
                         <span className={style.postDate}>{dayjs(target.createdAt).fromNow(true)}</span>
                     </div>
                     <div>{target.content}</div>

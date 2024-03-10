@@ -26,7 +26,7 @@
     line-height: 20px;
 }
 .postReposted svg {
-    fill: rgb(83, 100, 113)
+    fill: rgb(83, 100, 113);
 }
 
 .postUserSection {
@@ -42,6 +42,7 @@
     border-radius: 20px;
 }
 
+/* 이미지 위에 그림자 지도록 이미지 겹침*/
 .postShade {
     display: inline-block;
     width: 40px;
@@ -63,7 +64,8 @@
 .postUserName {
     font-weight: bold;
 }
-.postUserNick, .postDate {
+.postUserNick,
+.postDate {
     color: rgb(83, 100, 113);
 }
 .postDate:hover {
@@ -71,7 +73,6 @@
 }
 
 .postImageSection {
-
 }
 
 .postBody {
@@ -99,7 +100,7 @@
     justify-content: space-between;
     flex-direction: row;
     -moz-column-gap: 4px;
-         column-gap: 4px;
+    column-gap: 4px;
     margin-top: 12px;
 }
 
@@ -107,13 +108,17 @@
     fill: rgb(83, 100, 113);
 }
 
-.commentButton, .repostButton, .heartButton {
+.commentButton,
+.repostButton,
+.heartButton {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.commentButton button, .repostButton button, .heartButton button {
+.commentButton button,
+.repostButton button,
+.heartButton button {
     background: #ffffff;
     border: none;
     outline: none;
@@ -124,6 +129,7 @@
     justify-content: center;
     border-radius: 19px;
     cursor: pointer;
+    /* 바탕 천천히 색바뀌도록 */
     transition-property: background-color;
     transition-duration: 0.2s;
     margin-right: 4px;
@@ -141,11 +147,13 @@
     background-color: rgba(29, 155, 240, 0.1);
 }
 
-.commentButton.commented svg, .commentButton:hover svg {
-    fill: rgb(29, 155, 240)
+.commentButton.commented svg,
+.commentButton:hover svg {
+    fill: rgb(29, 155, 240);
 }
 
-.commentButton.commented .count, .commentButton:hover .count {
+.commentButton.commented .count,
+.commentButton:hover .count {
     color: rgb(29, 155, 240);
 }
 
@@ -157,26 +165,30 @@
     background-color: rgba(0, 186, 124, 0.1);
 }
 
-.repostButton.reposted svg, .repostButton:hover svg {
-    fill: rgb(11, 175, 123)
+.repostButton.reposted svg,
+.repostButton:hover svg {
+    fill: rgb(11, 175, 123);
 }
 
-.repostButton.reposted .count, .repostButton:hover .count {
-    color: rgb(11, 175, 123)
+.repostButton.reposted .count,
+.repostButton:hover .count {
+    color: rgb(11, 175, 123);
 }
 
 .heartButton button {
-    background-color: rgba(249, 24, 128, 0.01)
+    background-color: rgba(249, 24, 128, 0.01);
 }
 
 .heartButton:hover button {
-    background-color: rgba(249, 24, 128, 0.1)
+    background-color: rgba(249, 24, 128, 0.1);
 }
 
-.heartButton.liked svg, .heartButton:hover svg {
+.heartButton.liked svg,
+.heartButton:hover svg {
     fill: rgb(228, 34, 126);
 }
 
-.heartButton.liked .count, .heartButton:hover .count {
+.heartButton.liked .count,
+.heartButton:hover .count {
     color: rgb(228, 34, 126);
 }
