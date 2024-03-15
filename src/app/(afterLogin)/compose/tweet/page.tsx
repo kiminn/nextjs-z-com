@@ -1,3 +1,8 @@
-export default function Tweet() {
-    return <div>tweet</div>;
+import Home from "../../home/page";
+
+
+export default function Page() {
+  return (
+    <Home />
+  )
 }

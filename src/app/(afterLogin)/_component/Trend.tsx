@@ -5,7 +5,7 @@ export default function Trend() {
         //검색페이지로 이동
         <Link href={`/search?q=트렌드`} className={style.container}>
             <div className={style.count}>실시간트렌드</div>
-            <div className={style.title}>제로초</div>
+            <div className={style.title}>kimi</div>
             <div className={style.count}>1,234 posts</div>
         </Link>
     );

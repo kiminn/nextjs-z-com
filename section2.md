@@ -37,3 +37,21 @@ fromnow라는 API 사용 시 22 days ago와 같이 표현이 쉽게 가능
 `dayjs.locale(’ko’)`→ 한글 플러그인
 
 https://day.js.org/docs/en/display/from-now
+
+
+
+## classnames
+
+[cn 공식문서](https://www.npmjs.com/package/classnames)
+
+[cn 라이브러리 블로그](https://velog.io/@dooreplay/classNamesCSS-Modules)
+
+
+
+### cx(classnames라는 라이브러리)
+1. 하나의 div가 클래스를 여러 개 가질 수 있는데, 그걸 조건부로 가질 수 있게함
+2. cx라는 함수 안에 들어있는 전부를 다 기본적으로 랜더링 해주지만, 앞의 주어진 조건에 따른 배열 혹은 콤마로 나열 후 적용(방법이 많음)
+
+
+### /compose/tweet
+1. 패러렐 라우트 시에는 항상 @modal자리 마련이 필수이다.

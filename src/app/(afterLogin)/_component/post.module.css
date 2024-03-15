@@ -42,7 +42,7 @@
     border-radius: 20px;
 }
 
-/* 이미지 위에 그림자 지도록 이미지 겹침*/
+/* 이미지 위에 그림자 지도록 */
 .postShade {
     display: inline-block;
     width: 40px;

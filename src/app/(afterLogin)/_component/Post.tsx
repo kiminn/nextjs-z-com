@@ -3,6 +3,7 @@ import Link from 'next/link';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/ko';
+import ActionButtons from './ActionButtons';
 
 //한글 플러그인
 dayjs.locale('ko');
@@ -16,7 +17,7 @@ export default function Post() {
             nickname: 'Elon Musk',
             image: '/yRsRRjGO.jpg',
         },
-        content: '클론코딩 라이브로 하니 너무 힘들어요 ㅠㅠ',
+        content: 'X.com 클론코딩 하는 중!',
         createdAt: new Date(),
         Images: [],
     };
@@ -43,7 +44,7 @@ export default function Post() {
                     <div>{target.content}</div>
                     <div className={style.postImageSection}></div>
                     {/* 버튼은 client component */}
-                    {/* <ActionButtons /> */}
+                    <ActionButtons />
                 </div>
             </div>
         </article>

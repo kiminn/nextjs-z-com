@@ -8,7 +8,12 @@ import LogoutButton from './_component/LogoutButton';
 import TrendSection from './_component/TrendSection';
 import FollowRecommend from './_component/FollowRecommend';
 
-export default function AfterLoginLayout({ children }: { children: ReactNode }) {
+type Props = {
+    children: ReactNode;
+    modal: ReactNode;
+};
+
+export default function AfterLoginLayout({ children, modal }: Props) {
     // 나중에 서버에서 데이터를 불러와서 map으로 돌릴 부분
     const followRecommends = Array.from({ length: 3 }, (_, index) => <FollowRecommend key={index} />);
     return (
@@ -56,6 +61,8 @@ export default function AfterLoginLayout({ children }: { children: ReactNode }) 
                     </section>
                 </div>
             </div>
+            {/* 패러렐라우트 할 때  항상 모달자리 마련 필수!! */}
+            {modal}
         </div>
     );
 }
