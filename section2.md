@@ -53,5 +53,25 @@ https://day.js.org/docs/en/display/from-now
 2. cx라는 함수 안에 들어있는 전부를 다 기본적으로 랜더링 해주지만, 앞의 주어진 조건에 따른 배열 혹은 콤마로 나열 후 적용(방법이 많음)
 
 
-### /compose/tweet
-1. 패러렐 라우트 시에는 항상 @modal자리 마련이 필수이다.
+### /compose/tweet 만들기
+
+- 어떤 페이지에서든 게시하기를 누르면 뒤 배경은 유지한 채로 모달이 떠야 하기 때문에 인터셉팅 라우트를 사용
+
+
+🔴 Error
+
+<img width="1218" alt="스크린샷 2024-03-16 오후 5 02 33" src="https://github.com/kiminn/kimi-space/assets/134191815/7a8ff8fd-5e43-4ebd-bd23-8858c1d8431f">
+
+경로가 두 개가 존재해서 그럴 수 있음
+
+<img width="323" alt="스크린샷 2024-03-16 오후 5 04 55" src="https://github.com/kiminn/kimi-space/assets/134191815/e8c64662-8227-4c85-a2e7-91b8f1f95120">
+
+
+
+
+### usePathname과 /explore 페이지
+    useClient
+        - hook은 웬만하면 다 use client에 해당
+        - if pathname이 slash explorer이면 return null 해주면 explorer 화면에서는 안뜸!
+    검색창
+        - 하나를 빼기 위해서 레이아웃 컴포넌트 전체를 use client로 변경? 너무 불편 ⇒ 컴포넌트 일부만 분리!
