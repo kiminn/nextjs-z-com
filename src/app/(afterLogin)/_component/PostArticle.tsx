@@ -26,6 +26,7 @@ export default function PostArticle({ children, post }: Props) {
     };
 
     return (
+        //clickEvent랑 a태그가 겹치지않도록!
         <article onClickCapture={onClick} className={style.post}>
             {children}
         </article>
