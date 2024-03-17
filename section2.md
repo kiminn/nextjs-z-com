@@ -75,3 +75,10 @@ https://day.js.org/docs/en/display/from-now
         - if pathname이 slash explorer이면 return null 해주면 explorer 화면에서는 안뜸!
     검색창
         - 하나를 빼기 위해서 레이아웃 컴포넌트 전체를 use client로 변경? 너무 불편 ⇒ 컴포넌트 일부만 분리!
+
+
+
+
+### useSearchParams와 프로필, /search 페이지
+    공통인 애들과 아닌 애들
+        - 완전한 공통인 애들은 절대 경로로 아예 밖으로 전용 파일로 변경하는 것도 방법
