@@ -1,5 +1,8 @@
 ## ActiveLink
 
+다른 페이지로 이동이 가능한 사이드바(Link)를 클릭했을 때
+현재 페이지가 active 상태로, 현재 페이지가 아닌 페이지들은 active 하지 않은 상태를 가진 링크를 ActiveLink라 부른다.
+
 #### ⛰️목적: 주소연동
 
 현재 나의 위치가 home인지 탐색하기인지 쪽지인지 프로필인지 알려주는 것
@@ -39,6 +42,18 @@ fromnow라는 API 사용 시 22 days ago와 같이 표현이 쉽게 가능
 https://day.js.org/docs/en/display/from-now
 
 
+## useSelectedLayoutSegment()
+
+[NEXTjs 공식문서](https://nextjs.org/docs/app/api-reference/functions/use-selected-layout-segment)
+
+- useSelectedLayoutSegement()는 Nextjs에서 제공하는 훅으로 클라이언트 컴포넌트에서 사용되는 훅이다.
+- 레이아웃보다 한 수준 아래에 있는 active 경로 세그먼트를 읽을 수 있다.
+- 따라서 활성된 하위 세그먼트에 따라 스타일을 변경하는 상위 레이아웃 내부의 탭과 같은 탐색 UI에 유용하다.
+
+```
+"세그먼트(segment)"는 주소 공간을 나누는데 사용되는 용어입니다. 
+주로 메모리 관리와 관련이 있으며, 프로세스가 할당된 메모리 공간을 나누는 방법 중 하나입니다.
+```
 
 ## classnames
 
@@ -90,3 +105,5 @@ https://day.js.org/docs/en/display/from-now
     2. any ⇒ 아무거나 다 된다는 것(자주 사용하지 말기)
     3. 서버 컴포넌트랑 클라이언트 컴포넌트 같이 쓰는 방법
         - 필요한 일부 컴포넌트를 따로 빼내서 children이나 props으로 넣기
+
+

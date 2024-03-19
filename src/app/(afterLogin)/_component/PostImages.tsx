@@ -18,6 +18,7 @@ type Props = {
 };
 
 export default function PostImages({ post }: Props) {
+    // 얼리리턴: 빠르게 조건을 없애주는 것
     if (!post.Images) return null;
     if (!post.Images.length) return null;
     if (post.Images.length === 1) {

@@ -314,3 +314,5 @@ export default function Layout({ children, modal }: Props) {
 1. (afterLogin), (beforeLogin) 처럼 Group Folder
 2. @modal : parallel route
 3. private folder(\_): 폴더 정리용
+
+
