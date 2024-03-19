@@ -1,5 +1,5 @@
 .logOutButton {
-    width: 258px;
+    width: 66px;
     height: 66px;
     padding: 12px;
     display: flex;
@@ -10,9 +10,9 @@
     background-color: #fff;
     text-align: left;
 }
-.logOutButton:hover {
-    background-color: rgba(15, 20, 25, 0.1);
-    border-radius: 33px;
+/* 원래 없다가 1300되면 나타나게 */
+.logOutUserName {
+    display: none;
 }
 .logOutUserImage {
     display: flex;
@@ -23,9 +23,21 @@
     height: 40px;
     border-radius: 50%;
 }
-.logOutUserName {
-    margin: 0 12px;
+/* 모든 미디어 유형에서, 화면 너비가 1300px 이상인 경우에 해당하는 CSS 규칙을 정의하는 것 */
+@media all and (min-width: 1300px) {
+    .logOutButton {
+        width: 258px;
+        height: 258px;
+    }
+    .logOutUserName {
+        margin: 0 12px;
+        display: inline-block;
+    }
+    .logOutUserName > div:first-child {
+        font-weight: bold;
+    }
 }
-.logOutUserName > div:first-child {
-    font-weight: bold;
+.logOutButton:hover {
+    background-color: rgba(15, 20, 25, 0.1);
+    border-radius: 33px;
 }

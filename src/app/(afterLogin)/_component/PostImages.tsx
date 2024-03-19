@@ -88,5 +88,6 @@ export default function PostImages({ post }: Props) {
             </div>
         );
     }
+    //전부다 아닐 때
     return null;
 }
