@@ -324,3 +324,36 @@ nextjs에서 페이지를 렌더링하기 전에 서버 측에서 실행되는 �
 
 
 [next-auth 공식문서](https://next-auth.js.org/getting-started/example)
+
+
+
+### ✔️ API 라우트
+
+브라우저처럼 실제 주소가 된다.
+
+`route.ts` 는 백엔드 서버처럼 프론트 서버의 API 역할을 해서 백엔드 서버 없이도 서버 역할을 할 수 있다.
+
+### ✔️ catch-all 라우트
+
+- `[...segmentName]`
+
+동적 세그먼트에서 `...` 를 추가하면 catch-all 세그먼트를 만들 수 있다.
+
+URL에서 `...slug` 에 오는 부분들을 slug 배열로 반환한다.
+
+
+
+[다이나믹 라우팅 nextjs공식문서](https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes#catch-all-segments)
+
+
+동적 세그먼트는 useRouter.에서 액세스할 수 있습니다 
+
+
+## 환경 변수 설정
+
+`.env`
+
+```
+AUTH_URL=http://localhost:9090 # next.js가 실행될 URL
+AUTH_SECRET=mysecret # 쿠키를 암호화하는 비밀번호 유출 시 나인척 로그인가능 조심해서간직
+```

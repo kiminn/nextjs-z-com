@@ -1,18 +1,50 @@
 'use client';
 
 import style from '@/app/(beforeLogin)/_component/login.module.css';
-import { useState } from 'react';
+//클라이언트 환경에서의 signIn
+import { signIn } from 'next-auth/react';
+import { redirect } from 'next/dist/server/api-utils';
+//서버 환경에서의 signIn
+// import { signIn } from '@/auth';
+import { useRouter } from 'next/router';
+import { ChangeEventHandler, FormEventHandler, useState } from 'react';
 
 export default function LoginModal() {
-    const [id, setId] = useState();
-    const [password, setPassword] = useState();
-    const [message, setMessage] = useState();
-    const onSubmit = () => {};
-    const onClickClose = () => {};
+    const [id, setId] = useState('');
+    const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
+    const router = useRouter();
 
-    const onChangeId = () => {};
+    const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
+        e.preventDefault();
+        setMessage('');
+        try {
+            await signIn('credentials', {
+                //아이디 비밀번호 로그인 호출하기
+                username: id,
+                password,
+                redirect: false,
+                // 서버리다이렉ㅌoff , 리다이렉트 true로 설정시 서버쪽에서 리다이랙트 시킴 우리는 client환경을 사용중이다.
+            });
+            router.replace('/home');
+            // signIn("kakao") 카카오로 로그인 시 or signIn("google") 구글로 로그인 시
+        } catch (err) {
+            // 로그인 실패시 로직
+            console.error(err);
+            setMessage("아이디와 비밀번호가 일치하지 않습니다.")
+        }
+    };
+    const onClickClose = () => {
+        router.back();
+    };
 
-    const onChangePassword = () => {};
+    const onChangeId: ChangeEventHandler<HTMLInputElement> = (e) => {
+        setId(e.target.value);
+    };
+
+    const onChangePassword: ChangeEventHandler<HTMLInputElement> = (e) => {
+        setPassword(e.target.value);
+    };
 
     return (
         <div className={style.modalBackground}>
