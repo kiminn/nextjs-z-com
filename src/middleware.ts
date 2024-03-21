@@ -5,6 +5,7 @@ export async function middleware() {
     //auth(): 로그인 여부를 알 수 있음
     const session = await auth();
     if (!session) {
+        //세션이 없다면 이곳으로 redirect 보냄
         return NextResponse.redirect('http://localhost:3000/i/flow/login');
     }
 }

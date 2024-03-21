@@ -36,7 +36,7 @@ export const {
                 if (!authResponse.ok) {
                     return null;
                 }
-
+                // 여기서 받아오는 것이 session data 가 될것임
                 //로그인 성공시 user정보
                 const user = await authResponse.json();
                 console.log('user', user);

@@ -3,6 +3,7 @@ import BackButton from '@/app/(afterLogin)/_component/BackButton';
 import SearchForm from '@/app/(afterLogin)/_component/SearchForm';
 import Post from '@/app/(afterLogin)/_component/Post';
 import Tab from '../home/_component/Tab';
+import SearchResult from './_component/SearchResult';
 
 type Props = {
     // searchparams.f   or searchparams.pf 이런식으로 값을 얻어올 수 있음ㅁ
@@ -25,8 +26,8 @@ export default function Search({ searchParams }: Props) {
                 <Tab />
             </div>
             <div className={style.list}>
-                {posts}
-                {/*<SearchResult searchParams={searchParams} />*/}
+                {/* {posts} */}
+                <SearchResult searchParams={searchParams} />
             </div>
         </main>
     );

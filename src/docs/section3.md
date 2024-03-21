@@ -357,3 +357,64 @@ URL에서 `...slug` 에 오는 부분들을 slug 배열로 반환한다.
 AUTH_URL=http://localhost:9090 # next.js가 실행될 URL
 AUTH_SECRET=mysecret # 쿠키를 암호화하는 비밀번호 유출 시 나인척 로그인가능 조심해서간직
 ```
+
+## useSession()
+useSession()을 사용하기 위해서는 SessionProvider로 랩핑이 되어 있어야 한다.
+
+
+### ✔️ SessionProvider 정의하기
+
+```tsx
+// src\app\_component\AuthSession.tsx
+"use client";
+import { SessionProvider } from "next-auth/react";
+
+type Props = {
+  children: React.ReactNode;
+};
+
+export default function AuthSession({ children }: Props) {
+  return <SessionProvider>{children}</SessionProvider>;
+}
+```
+
+Provider들은 대게 클라이언트 컴포넌트로 사용된다.
+
+
+서버 컴포넌트의 경우 next-auth를 통해 만들었던 `auth()` 함수를 통해 로그인 정보를 가져와준다.
+
+## csrf-token
+
+![alt text](image-1.png)
+
+next-auth를 설치하게 되면 쿠키에 `authjs-` 쿠키들이 생성되는데, </br>
+로그인을 할 경우 `authjs.session-token` 값이 주어진다.
+
+이 토큰이 유출되면 해커가 자유롭게 내 정보로 로그인을 할 수 있게 된다.
+
+이 csrf 공격으로 인해 유출될 수 있는데, next-auth에서는 `authjs.csrf-token`를 통해 이 공격을 방어할 수 있다.
+
+
+
+## middleware
+
+미들웨어의 본래 기능은 요청과 응답 사이의 중간 단계로 동작하여 요청을 처리하고 응답을 생성하는 역할
+
+미들웨어를 사용하여 리다이렉트를 처리하는 경우, 주로 요청을 검사하고 필요한 경우 클라이언트를 다른 페이지로 리디렉션하는 등의 작업을 수행
+
+```jsx
+const myMiddleware = (req, res, next) => {
+    // 조건에 따라 리다이렉트를 수행
+    if (/* 리다이렉트 조건 */) {
+        // 클라이언트를 다른 페이지로 리다이렉트
+        res.redirect('/other-page');
+    } else {
+        // 다음 미들웨어로 이동
+        next();
+    }
+};
+
+// 미들웨어를 Express 애플리케이션에 등록
+app.use(myMiddleware);
+```
+

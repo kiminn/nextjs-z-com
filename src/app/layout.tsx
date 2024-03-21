@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { MSWComponent } from '@/app/_component/MSWComponent';
+import AuthSession from '@/app/_component/AuthSession';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,7 +17,11 @@ type Props = {
 export default function RootLayout({ children }: Props) {
     return (
         <html lang="en">
-            <body className={inter.className}>{children}</body>
+            <body className={inter.className}>
+                <MSWComponent />
+                {/* AuthSessionProvider로 감싼 내부 컴포넌트에서는 이제 어디서든 useSession() 훅을 사용할 수 있다. */}
+                <AuthSession>{children}</AuthSession>
+            </body>
         </html>
     );
 }

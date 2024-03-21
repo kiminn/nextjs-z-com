@@ -4,9 +4,10 @@ import style from '@/app/(beforeLogin)/_component/login.module.css';
 //클라이언트 환경에서의 signIn
 import { signIn } from 'next-auth/react';
 import { redirect } from 'next/dist/server/api-utils';
+import { useRouter } from 'next/navigation';
 //서버 환경에서의 signIn
 // import { signIn } from '@/auth';
-import { useRouter } from 'next/router';
+
 import { ChangeEventHandler, FormEventHandler, useState } from 'react';
 
 export default function LoginModal() {

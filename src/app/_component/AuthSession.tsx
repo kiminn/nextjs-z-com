@@ -8,3 +8,8 @@ type Props = ({
 export default function AuthSession({ children }: Props) {
   return <SessionProvider>{children}</SessionProvider>;
 }
+
+/*
+layout에 적용
+
+*/
